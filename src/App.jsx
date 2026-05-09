@@ -6,6 +6,7 @@ import CategoryAdsPage from './pages/CategoryAdsPage'
 import CreateAdPage from "./pages/CreateAdPage.jsx";
 import AdDetailsPage from "./pages/AdDetailPage.jsx";
 import MyAdsPage from './pages/MyAdsPage';
+import EditAdPage from "./pages/EditAdPage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: 'my-ads',
                 element: <MyAdsPage />,
+            },
+            {
+                path: 'edit/:id',
+                element: <EditAdPage />,
             }
 
         ],
