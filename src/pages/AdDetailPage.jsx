@@ -55,7 +55,7 @@ function AdDetailsPage() {
     if (!werbung) return null
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-black to-black px-4 py-6">
+        <div className="px-4 py-6">
 
             <div className="max-w-xl mx-auto flex flex-col gap-4">
 
