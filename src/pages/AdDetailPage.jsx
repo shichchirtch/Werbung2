@@ -4,6 +4,7 @@ import HomeButton from '../components/common/HomeButton.jsx'
 import ButtonZuruck from "../components/common/ButtonZuruck.jsx";
 import { useDispatch, useSelector } from 'react-redux'
 import { addMessage } from '../features/messages/messagesSlice.js'
+import { removeWerbung } from '../features/werbung/werbungSlice'
 
 const currentUser = {
     id: 'user_1',
@@ -18,6 +19,10 @@ function AdDetailsPage() {
 
     const allWerbungen = useSelector((state) => state.werbung.werbungen)
 
+    const user = useSelector((state) => state.user)
+
+
+
     const werbung = allWerbungen.find(
         (item) => String(item.id) === id
     )
@@ -27,7 +32,7 @@ function AdDetailsPage() {
     const messages = werbung
         ? allMessages.filter((m) => m.adId === werbung.id)
         : []
-
+    const isOwner = user.id === werbung.ownerId
     const handleSend = () => {
         if (!message.trim()) return
 
@@ -52,17 +57,6 @@ function AdDetailsPage() {
     return (
         <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-black to-black px-4 py-6">
 
-            {/* HEADER */}
-            <div className="
-        flex justify-center gap-4 mb-6
-        bg-white/5 border border-white/10
-        backdrop-blur-md
-        p-3 rounded-3xl w-fit mx-auto
-      ">
-                <ButtonZuruck />
-                <HomeButton />
-            </div>
-
             <div className="max-w-xl mx-auto flex flex-col gap-4">
 
                 {/* IMAGE */}
@@ -80,7 +74,7 @@ function AdDetailsPage() {
           rounded-3xl p-5 backdrop-blur-md
         ">
 
-                    <h1 className="text-2xl font-bold text-white mb-2">
+                    <h1 className="text-2xl font-bold text-gray-300 mb-2">
                         {werbung.title}
                     </h1>
 
@@ -123,7 +117,7 @@ function AdDetailsPage() {
                                 messages.map((msg) => (
                                     <div
                                         key={msg.id}
-                                        className="bg-cyan-500/20 text-white p-2 rounded-xl text-sm self-start"
+                                        className="bg-cyan-500/20 text-gray-300 p-2 rounded-xl text-sm self-start"
                                     >
                                         {msg.text}
                                     </div>

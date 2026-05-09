@@ -36,15 +36,6 @@ function CategoriesPage() {
             >
                 Dienstleistungen
             </h1>
-            <div className="
-    flex justify-center gap-4 mb-6
-    bg-white/5 border border-white/10
-    backdrop-blur-md
-    p-3 rounded-3xl w-fit mx-auto
-">
-                <ButtonZuruck/>
-                <HomeButton/>
-            </div>
             <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto">
 
                 {categories.map((item) => (

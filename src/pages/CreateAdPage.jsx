@@ -93,7 +93,7 @@ function CreateAdPage() {
     }, [successModal, navigate, slug])
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-black to-black px-4 py-6">
+        <div className="px-4 py-6">
 
             <h1
                 className="text-3xl font-black text-center mb-2 text-black"
@@ -119,7 +119,7 @@ function CreateAdPage() {
                     placeholder="Titel der Anzeige"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="bg-black/40 text-white p-4 rounded-2xl outline-none border border-white/10"
+                    className="bg-black/40 text-gray-400 p-4 rounded-2xl outline-none border border-white/10"
                 />
 
                 <input
@@ -131,7 +131,7 @@ function CreateAdPage() {
                     minLength="5"
                     value={plz}
                     onChange={(e) => setPlz(e.target.value)}
-                    className="bg-black/40 text-white p-4 rounded-2xl outline-none border border-white/10"
+                    className="bg-black/40 text-gray-400 p-4 rounded-2xl outline-none border border-white/10"
                 />
 
                 <textarea
@@ -140,7 +140,7 @@ function CreateAdPage() {
                     maxLength={2000}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    className="bg-black/40 text-white p-4 rounded-2xl outline-none border border-white/10 resize-none"
+                    className="bg-black/40 text-gray-400 p-4 rounded-2xl outline-none border border-white/10 resize-none"
                 />
                 <div className="text-right text-sm text-gray-400 -mt-2">
                     {description.length}/2000
@@ -151,7 +151,7 @@ function CreateAdPage() {
                     placeholder="Preisinfo (optional)"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
-                    className="bg-black/40 text-white p-4 rounded-2xl outline-none border border-white/10"
+                    className="bg-black/40 text-gray-400 p-4 rounded-2xl outline-none border border-white/10"
                 />
 
                 {/*<select*/}
@@ -169,7 +169,7 @@ function CreateAdPage() {
                 <div className="flex flex-col gap-3">
 
                     <label className="
-        bg-black/40 text-gray-300 p-4 rounded-2xl
+        bg-black/40 text-gray-400 p-4 rounded-2xl
         border border-white/10 cursor-pointer text-center
     ">
                         Фото загрузить
@@ -233,7 +233,8 @@ function CreateAdPage() {
             {successModal && (
                 <div className="fixed inset-0 bg-black/70 flex items-center justify-center px-4 z-50">
 
-                    <div className="w-full max-w-sm rounded-3xl bg-zinc-900 border border-white/10 p-6 text-center shadow-2xl">
+                    <div
+                        className="w-full max-w-sm rounded-3xl bg-zinc-900 border border-white/10 p-6 text-center shadow-2xl">
 
                         <div className="text-5xl mb-3">✅</div>
 
@@ -248,7 +249,7 @@ function CreateAdPage() {
                         <button
                             onClick={() => {
                                 setSuccessModal(false)
-                                navigate(`/category/${slug}`,{ replace: true })
+                                navigate(`/category/${slug}`, {replace: true})
                             }}
                             className="
                     w-full py-4 rounded-2xl font-bold text-black

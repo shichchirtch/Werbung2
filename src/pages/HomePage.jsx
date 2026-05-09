@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+
+
 
 function HomePage() {
     const name = useSelector((state) => state.user.name)
@@ -33,9 +35,10 @@ function HomePage() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-black to-black flex items-center justify-center px-6">
-
-            <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-2xl">
+        <div className="min-h-[calc(100vh-80px)]
+    flex items-center justify-center">
+            <div
+                className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-2xl">
 
                 <h1
                     className="text-4xl font-black text-center mb-4 text-black"

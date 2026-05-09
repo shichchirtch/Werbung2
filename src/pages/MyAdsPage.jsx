@@ -1,7 +1,5 @@
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import ButtonZuruck from "../components/common/ButtonZuruck.jsx"
-import HomeButton from "../components/common/HomeButton.jsx"
 
 function MyAdsPage() {
     const navigate = useNavigate()
@@ -14,22 +12,11 @@ function MyAdsPage() {
     )
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-black to-black px-4 py-6">
-
-            <div className="
-        flex justify-center gap-4 mb-6
-        bg-white/5 border border-white/10
-        backdrop-blur-md
-        p-3 rounded-3xl w-fit mx-auto
-      ">
-                <ButtonZuruck />
-                <HomeButton />
-            </div>
+        <div className="px-4 py-6">
 
             <h1 className="text-3xl text-white font-bold text-center mb-6">
                 Meine Anzeigen
             </h1>
-
             {myAds.length === 0 ? (
                 <p className="text-center text-gray-400">
                     Du hast noch keine Anzeigen erstellt
@@ -41,7 +28,7 @@ function MyAdsPage() {
                             key={item.id}
                             className="bg-white/5 border border-white/10 rounded-3xl p-4 backdrop-blur-md"
                         >
-                            <h2 className="text-white font-bold text-lg mb-2">
+                            <h2 className="text-gray-300 font-bold text-lg mb-2">
                                 {item.title}
                             </h2>
 
@@ -70,4 +57,4 @@ function MyAdsPage() {
     )
 }
 
-export default MyAdsPage
+            export default MyAdsPage

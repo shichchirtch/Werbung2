@@ -38,17 +38,7 @@ function CategoryAdsPage() {
         .sort((a, b) => b.id - a.id)
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-black to-black px-4 py-6">
-
-            <div className="
-    flex justify-center gap-4 mb-6
-    bg-white/5 border border-white/10
-    backdrop-blur-md
-    p-3 rounded-3xl w-fit mx-auto
-">
-                <ButtonZuruck/>
-                <HomeButton/>
-            </div>
+        <div className="px-4 py-6">
 
             <h1
                 className="text-4xl font-black text-center mb-3 text-black"
