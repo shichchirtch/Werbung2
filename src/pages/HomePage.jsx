@@ -80,18 +80,6 @@ function HomePage() {
                         Поиск объявлений
                     </button>
 
-                    <button
-                        onClick={() => navigate('/my-ads')}
-                        className="
-    py-4 rounded-2xl font-bold text-white text-lg
-    bg-gradient-to-br from-purple-500 to-indigo-600
-    shadow-lg shadow-purple-500/40
-    active:scale-95 transition
-  "
-                    >
-                        Meine Anzeigen
-                    </button>
-
                 </div>
 
             </div>

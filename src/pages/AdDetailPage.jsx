@@ -14,7 +14,6 @@ function AdDetailsPage() {
     const [showChat, setShowChat] = useState(false)
     const [message, setMessage] = useState('')
     const [showDeleteModal, setShowDeleteModal] = useState(false)
-    const [showSuccessModal, setShowSuccessModal] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -35,9 +34,10 @@ function AdDetailsPage() {
         ? allMessages.filter((m) => m.adId === werbung.id)
         : []
 
-    const isOwner = werbung
-        ? user.id === werbung.ownerId
-        : false
+    const isOwner =
+        user.isAuth &&
+        werbung &&
+        user.id === werbung.ownerId
 
     const handleSend = () => {
         if (!message.trim()) return
@@ -117,7 +117,7 @@ function AdDetailsPage() {
                             🗑 Löschen
                         </button>
                     )}
-
+                    {isOwner && (
                     <button
                         className="
                 flex-1 py-3 rounded-2xl font-bold text-white
@@ -129,7 +129,7 @@ function AdDetailsPage() {
                         onClick={() => navigate(`/edit/${werbung.id}`)}
                     >
                         ✏️ Bearbeiten
-                    </button>
+                    </button>)}
 
 
                     <button

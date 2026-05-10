@@ -19,6 +19,7 @@ function EditAdPage() {
         (item) => String(item.id) === id
     )
 
+
     const [title, setTitle] = useState('')
     const [plz, setPlz] = useState('')
     const [description, setDescription] = useState('')
