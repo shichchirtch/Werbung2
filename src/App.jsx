@@ -7,6 +7,9 @@ import CreateAdPage from "./pages/CreateAdPage.jsx";
 import AdDetailsPage from "./pages/AdDetailPage.jsx";
 import MyAdsPage from './pages/MyAdsPage';
 import EditAdPage from "./pages/EditAdPage.jsx";
+import ProfilePage  from "./pages/ProfilePage.jsx";
+import EditProfilePage  from "./pages/EditProfilePage.jsx";
+import FavoritesPage from "./pages/FavoritePage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +43,18 @@ const router = createBrowserRouter([
             {
                 path: 'edit/:id',
                 element: <EditAdPage />,
+            },
+            {
+                path: 'profile',
+                element: <ProfilePage />,
+            },
+            {
+                path: 'edit-profile',
+                element: <EditProfilePage />,
+            },
+            {
+                path: 'favorites',
+                element: <FavoritesPage />,
             }
 
         ],

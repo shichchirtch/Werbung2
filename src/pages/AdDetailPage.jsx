@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addMessage } from '../features/messages/messagesSlice.js'
 import { removeWerbung } from '../features/werbung/werbungSlice'
+import { toggleFavorite } from '../features/favorites/favoritesSlice'
 
 const currentUser = {
     id: 'user_1',
@@ -39,6 +40,10 @@ function AdDetailsPage() {
         werbung &&
         user.id === werbung.ownerId
 
+    const favorites = useSelector((state) => state.favorites.favorites)
+
+    const isFavorite = favorites.includes(werbung.id)
+
     const handleSend = () => {
         if (!message.trim()) return
 
@@ -55,7 +60,15 @@ function AdDetailsPage() {
         dispatch(addMessage(newMessage))
         setMessage('')
     }
+    const handleToggleFavorite = () => {
 
+        if (!user.isAuth) {
+            alert('Bitte zuerst einloggen')
+            return
+        }
+
+        dispatch(toggleFavorite(werbung.id))
+    }
 
 
     if (!werbung) return null
@@ -118,19 +131,33 @@ function AdDetailsPage() {
                         </button>
                     )}
                     {isOwner && (
-                    <button
-                        className="
+                        <button
+                            className="
                 flex-1 py-3 rounded-2xl font-bold text-white
                 bg-gradient-to-br from-gray-500 to-gray-700
                 shadow-lg shadow-cyan-500/20
                 active:scale-95 transition
             "
 
-                        onClick={() => navigate(`/edit/${werbung.id}`)}
+                            onClick={() => navigate(`/edit/${werbung.id}`)}
+                        >
+                            ✏️ Bearbeiten
+                        </button>)}
+                    <button
+                        onClick={handleToggleFavorite}
+                        // disabled={!user.isAuth}
+                        className={`
+        flex-1 py-3 rounded-2xl font-bold
+        transition active:scale-95
+        ${isFavorite
+                            ? 'bg-gray-500 text-white'
+                            : 'bg-gray-700 text-gray-300'
+                        }
+    `}
                     >
-                        ✏️ Bearbeiten
-                    </button>)}
 
+                        {isFavorite ? '❤️ Gespeichert' : '🤍 Merken'}
+                    </button>
 
                     <button
                         onClick={() => setShowChat((prev) => !prev)}
@@ -180,6 +207,8 @@ function AdDetailsPage() {
                             >
                                 →
                             </button>
+
+
                         </div>
 
                     </div>
